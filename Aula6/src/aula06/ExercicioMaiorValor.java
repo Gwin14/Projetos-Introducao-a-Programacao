@@ -16,10 +16,14 @@ public class ExercicioMaiorValor {
         System.out.print("Diga o numero 3: ");
         int num3 = sc.nextInt();
 
-        int numFinal = (num1 > num2) ? num1 : num2;
-        numFinal = (numFinal > num3) ? numFinal : num3;
+        if (num1 == num2 && num1 == num3) {
+            System.out.println("Todos iguais");
+        } else {
+            int numFinal = (num1 > num2) ? num1 : num2;
+            numFinal = (numFinal > num3) ? numFinal : num3;
 
-        System.out.println("O maior número digitado é " + numFinal);
+            System.out.println("O maior número digitado é " + numFinal);
+        }
 
     }
 
