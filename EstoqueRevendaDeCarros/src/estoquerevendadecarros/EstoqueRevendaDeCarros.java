@@ -11,12 +11,14 @@ public class EstoqueRevendaDeCarros {
 
         while (ativo) {
 
-            menuInicial(ativo, estoque);
+            ativo = menuInicial(ativo, estoque);
 
         }
     }
 
     private static void preencherEstoque(String[] estoque) {
+        System.out.println("=====================");
+
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < estoque.length; i++) {
@@ -38,6 +40,8 @@ public class EstoqueRevendaDeCarros {
     }
 
     private static void comprarCarro(String[] estoque) {
+        System.out.println("=====================");
+
         Scanner sc = new Scanner(System.in);
         boolean carroExiste = false;
 
@@ -90,6 +94,7 @@ public class EstoqueRevendaDeCarros {
     }
 
     private static void mostrarEstoque(String[] estoque) {
+        System.out.println("=====================");
         System.out.println("CARROS EM ESTOQUE");
         for (String carro : estoque) {
 
@@ -133,7 +138,7 @@ public class EstoqueRevendaDeCarros {
                     System.out.println("Resposta inválida, tente novamente.");
                     break;
             }
-            System.out.println("=====================");
+
         } else {
             System.out.println("=====================");
             System.out.println("MENU INICIAL: o que deseja fazer?");
@@ -167,7 +172,7 @@ public class EstoqueRevendaDeCarros {
                     break;
 
             }
-            System.out.println("=====================");
+
         }
 
         return ativo;
