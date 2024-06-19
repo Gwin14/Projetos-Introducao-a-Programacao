@@ -5,53 +5,14 @@ import java.util.Scanner;
 public class EstoqueRevendaDeCarros {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         boolean ativo = true;
 
         String[] estoque = new String[50];
-        
+
         while (ativo) {
-            System.out.println("=====================");
-            System.out.println("MENU INICIAL: o que deseja fazer?");
-            System.out.println("1 -> Preencher estoque");
-            System.out.println("2 -> Comprar carro");
-            System.out.println("3 -> Mostrar estoque");
-            System.out.println("4 -> Sair");
-            System.out.print("Resposta: ");
-            String resposta = sc.next();
 
-            switch (resposta) {
-                case "1":
-                    preencherEstoque(estoque);
-                    break;
+            menuInicial(ativo, estoque);
 
-                case "2":
-                    if (verificarEstoque(estoque)) {
-                        System.out.println("Sem carros em estoque!");
-                        break;
-                    }
-                    comprarCarro(estoque);
-                    break;
-
-                case "3":
-                    if (verificarEstoque(estoque)) {
-                        System.out.println("Sem carros em estoque!");
-                        break;
-                    }
-                    mostrarEstoque(estoque);
-                    break;
-
-                case "4":
-                    System.out.println("Sistema encerrado.");
-                    ativo = false;
-                    break;
-
-                default:
-                    System.out.println("Resposta inválida, tente novamente.");
-                    break;
-
-            }
-            System.out.println("=====================");
         }
     }
 
@@ -145,6 +106,71 @@ public class EstoqueRevendaDeCarros {
             }
         }
         return true;
+    }
+
+    private static boolean menuInicial(boolean ativo, String[] estoque) {
+        Scanner sc = new Scanner(System.in);
+
+        if (verificarEstoque(estoque)) {
+            System.out.println("=====================");
+            System.out.println("MENU INICIAL: o que deseja fazer?");
+            System.out.println("1 -> Preencher estoque");
+            System.out.println("2 -> Sair");
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+
+            switch (resposta) {
+                case "1":
+                    preencherEstoque(estoque);
+                    break;
+
+                case "2":
+                    System.out.println("Sistema encerrado.");
+                    ativo = false;
+                    break;
+
+                default:
+                    System.out.println("Resposta inválida, tente novamente.");
+                    break;
+            }
+            System.out.println("=====================");
+        } else {
+            System.out.println("=====================");
+            System.out.println("MENU INICIAL: o que deseja fazer?");
+            System.out.println("1 -> Preencher estoque");
+            System.out.println("2 -> Comprar carro");
+            System.out.println("3 -> Mostrar estoque");
+            System.out.println("4 -> Sair");
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+
+            switch (resposta) {
+                case "1":
+                    preencherEstoque(estoque);
+                    break;
+
+                case "2":
+                    comprarCarro(estoque);
+                    break;
+
+                case "3":
+                    mostrarEstoque(estoque);
+                    break;
+
+                case "4":
+                    System.out.println("Sistema encerrado.");
+                    ativo = false;
+                    break;
+
+                default:
+                    System.out.println("Resposta inválida, tente novamente.");
+                    break;
+
+            }
+            System.out.println("=====================");
+        }
+
+        return ativo;
     }
 
 }
